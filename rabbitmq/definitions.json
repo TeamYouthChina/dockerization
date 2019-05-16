@@ -1,0 +1,38 @@
+{
+    "rabbit_version": "3.6.6",
+    "users": [
+     {  
+      "name": "rabbitmq",
+      "password_hash": "RLylEPhdzZybJ2nhnTdhQBq3D+RZpL+qH8Bq2ZFTat+7hArr", // rabbitmqpass
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": "administrator"
+     }
+    ],
+    "vhosts": [
+     {
+      "name": "\/vhost1"
+     }
+    ],
+    "permissions": [
+     {
+      "user": "rabbitmq",
+      "vhost": "\/vhost1",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+     }
+    ],
+    "parameters": [],
+    "policies": [],
+    "queues": [
+        {
+            "name": "email",
+            "vhost": "/vhost1",
+            "durable": true,
+            "auto_delete": false,
+            "arguments": {}
+        }
+    ],
+    "exchanges": [],
+    "bindings": []
+   }

@@ -1,10 +1,10 @@
 FROM swaggerapi/swagger-ui
-WORKDIR /tmp
 
 ENV SWAGGER_JSON /tmp/api.yml
 
-ARG CONFIG_FILE=./youthichinaopenapi.yml
+ARG CONFIG_FILE=./youthchinaopenapi.yml
 
 COPY ${CONFIG_FILE} /tmp/api.yml
 
-ENTRYPOINT [ "docker-entrypoint.sh" ]
+CMD ["sh", "/usr/share/nginx/run.sh"]
+

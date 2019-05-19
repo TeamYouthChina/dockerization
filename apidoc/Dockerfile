@@ -1,6 +1,6 @@
 FROM swaggerapi/swagger-ui
 
-ENV SWAGGER_JSON /tmp/api.yml
+ENV SWAGGER_JSON /api.yml
 
 ARG CONFIG_FILE=./youthchinaopenapi.yml
 

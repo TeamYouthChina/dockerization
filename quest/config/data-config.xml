@@ -1,0 +1,93 @@
+<dataConfig>
+    <dataSource type="JdbcDataSource"
+                driver="com.mysql.jdbc.Driver"
+                url="jdbc:mysql://mysql:3306/youthchina"
+                user="root"
+                password="rootpass"/>
+
+    <document>
+        <entity name="question"
+                pk="ID"
+                query="SELECT 'QUESTION' AS TYPE, concat('QUESTION_', QUES_ID) AS ID, QUES_TITLE AS TITLE, COM_RICH_TEXT.TEXT_CONTENT AS BODY FROM COM_QUESTION INNER JOIN COM_RICH_TEXT WHERE COM_QUESTION.QUES_BODY = COM_RICH_TEXT.TEXT_ID;">
+            <field column="ID" name="id"/>
+            <field column="TYPE" name="type"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="answers"
+                pk="ID"
+                query="SELECT 'ANSWER' AS TYPE, concat('ANSWER_', ANSWER_ID) AS ID, '' AS TITLE, COM_RICH_TEXT.TEXT_CONTENT AS BODY FROM COM_ANSWER INNER JOIN COM_RICH_TEXT WHERE ANSWER_BODY=COM_RICH_TEXT.TEXT_ID;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="briefReviews"
+                pk="ID"
+                query="SELECT 'REVIEW' AS TYPE, concat('REVIEW_', REVIEW_ID) AS ID, '' AS TITLE, COM_RICH_TEXT.TEXT_CONTENT AS BODY FROM COM_BRIEF_REVIEW INNER JOIN COM_RICH_TEXT WHERE REVIEW_BODY=COM_RICH_TEXT.TEXT_ID;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="essays"
+                pk="ID"
+                query="SELECT 'ESSAY' AS TYPE, concat('ESSAY_', ESSAY_ID) AS ID, ESSAY_TITLE AS TITLE, COM_RICH_TEXT.TEXT_CONTENT AS BODY FROM COM_ESSAY INNER JOIN COM_RICH_TEXT WHERE COM_ESSAY.ESSAY_BODY = COM_RICH_TEXT.TEXT_ID;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="companys"
+                pk="ID"
+                query="SELECT 'COMPANY' AS TYPE, concat('COMPANY_', COMPANY_ID) AS ID, COMPANY_NAME AS TITLE, COMPANY_INTRODUC AS BODY FROM COMPANY_INFO;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="jobs"
+                pk="ID"
+                query="SELECT 'JOB' AS TYPE, concat('JOB_', JOB_ID) AS ID, JOB_NAME AS TITLE, JOB_DESCRIPTION AS BODY FROM JOB_INFO;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="comments"
+                pk="ID"
+                query="SELECT 'COMMENT' AS TYPE, concat('COMMENT_', COMMENT_ID) AS ID,'' AS TITLE, COMMENT_CONTENT AS BODY FROM COM_COMMENT;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="videos"
+                pk="ID"
+                query="SELECT 'VIDEO' AS TYPE, concat('VIDEO_', VIDEO_ID) AS ID, VIDEO_TITLE AS TITLE, '' AS BODY FROM COM_VIDEO;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+        <entity name="users"
+                pk="ID"
+                query="SELECT 'USER' AS TYPE, concat('USER_', USER_ID) AS ID, concat(concat(USER_FIRST_NAME, ' '), USER_LAST_NAME) AS TITLE, '' AS BODY FROM SYS_USER;">
+            <field column="TYPE" name="type"/>
+            <field column="ID" name="id"/>
+            <field column="TITLE" name="title"/>
+            <field column="BODY" name="body"/>
+        </entity>
+
+
+    </document>
+
+</dataConfig>

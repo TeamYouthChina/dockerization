@@ -11,5 +11,7 @@ COPY mysql-connector-java-8.0.15.jar /opt/solr/contrib/dataimporthandler/lib/mys
 EXPOSE 8983
 
 # create default core
-CMD [ "sh", "-c", "solr-precreate ${DEFAULT_CORE_NAME} /quest/config" ] 
+# CMD [ "sh", "-c", "/quest/entrypoint.sh $DEFAULT_CORE_NAME"] 
+CMD ["sh","-c", "solr-precreate $DEFAULT_CORE_NAME /quest/config"]
+
 
